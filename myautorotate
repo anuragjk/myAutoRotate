@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Author: Anurag
+# Date 4JUL2021
+# v1.0.0
+
+ARG=$1
+
+usage(){
+	echo "usage:"
+	echo "$0 enable|disable"
+}
+
+if [ "$ARG" = "enable" ]; then
+	echo "Enabling auto rotate..."
+#	systemctl start iio-sensor-proxy.service
+elif [ "$ARG" = "disable" ]; then
+	echo "Disabling auto rotate..."
+	systemctl stop iio-sensor-proxy.service
+else
+	usage 
+	exit 0
+fi
+
+echo "Done."
